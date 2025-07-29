@@ -20,14 +20,9 @@
 
 ### Approach
 
-1.  The function `fun` is called with `w = 40` and `x = 4`.
-2.  A variable `y` is initialized to `0`.
-3.  The `if` statement checks the condition `(x mod w == 0) || (w mod x == 0)`.
-4.  The first part of the OR condition is `(4 mod 40 == 0)`, which is **FALSE**.
-5.  The second part of the OR condition is `(40 mod 4 == 0)`, which is **TRUE**.
-6.  Since one of the operands in the logical OR is TRUE, the entire condition is TRUE.
-7.  The code inside the `if` block is executed: `y = y + 1`, so `y` becomes `1`.
-8.  The function then prints the final value of `y`.
+1. Call `fun(40, 4)` with `w=40, x=4, y=0`
+2. Check: `(4 mod 40 == 0) || (40 mod 4 == 0)` -> `False || True` = **True**
+3. Execute `y = y + 1`, so `y = 1`
 
 ### Result
 
@@ -39,7 +34,7 @@ The final output is **1**.
 
 ### Pseudocode
 
-This Problem asks for the number of times the `while` loop will be executed.
+Count the number of times the `while` loop executes.
 
 ```
 1. Integer a
@@ -52,10 +47,10 @@ This Problem asks for the number of times the `while` loop will be executed.
 
 ### Approach
 
-1.  The variable `a` is initialized to `1`.
-2.  **First Iteration**: The condition `a < 5` (`1 < 5`) is TRUE. The loop executes. `a` is updated to `1 + 2 = 3`.
-3.  **Second Iteration**: The condition `a < 5` (`3 < 5`) is TRUE. The loop executes. `a` is updated to `3 + 2 = 5`.
-4.  **Third Check**: The condition `a < 5` (`5 < 5`) is FALSE. The loop terminates.
+1. Start with `a = 1`
+2. **Iteration 1**: `1 < 5` -> True, `a = 3`
+3. **Iteration 2**: `3 < 5` -> True, `a = 5`
+4. **Check 3**: `5 < 5` -> False, loop ends
 
 ### Result
 
@@ -67,7 +62,7 @@ The `while` loop will be executed **2** times.
 
 ### Pseudocode
 
-What is the output for the initial call `funn(8, 8)`?
+Find the output for `funn(8, 8)`:
 
 ```
 1. Integer funn (Integer a, Integer b)
@@ -82,20 +77,14 @@ What is the output for the initial call `funn(8, 8)`?
 
 ### Approach
 
-This is a recursive function. The trace of the calls is as follows:
+Recursive trace:
+- `funn(8,8)`: True -> `8 + funn(6,6) + 8`
+- `funn(6,6)`: True -> `6 + funn(4,4) + 6`  
+- `funn(4,4)`: True -> `4 + funn(2,2) + 4`
+- `funn(2,2)`: True -> `2 + funn(0,0) + 2`
+- `funn(0,0)`: False -> `0 ^ 0 = 0`
 
-  * `fun(8, 8)`: The condition is TRUE. Returns `8 + fun(6, 6) + 8`.
-  * `fun(6, 6)`: The condition is TRUE. Returns `6 + fun(4, 4) + 6`.
-  * `fun(4, 4)`: The condition is TRUE. Returns `4 + fun(2, 2) + 4`.
-  * `fun(2, 2)`: The condition is TRUE. Returns `2 + fun(0, 0) + 2`.
-  * `fun(0, 0)`: The condition is FALSE. It returns `0 ^ 0 = 0`.
-
-The values are then substituted back up the call stack:
-
-  * `fun(2, 2)` returns `2 + 0 + 2 = 4`.
-  * `fun(4, 4)` returns `4 + 4 + 4 = 12`.
-  * `fun(6, 6)` returns `6 + 12 + 6 = 24`.
-  * `fun(8, 8)` returns `8 + 24 + 8 = 40`.
+Back-substitution: `2+0+2=4`, `4+4+4=12`, `6+12+6=24`, `8+24+8=40`
 
 ### Result
 
@@ -123,13 +112,10 @@ The final output is **40**.
 
 ### Approach
 
-1.  Variables `a` and `b` are initialized to `3`.
-2.  The `if` condition checks the value of `1 ^ 1`.
-3.  The bitwise XOR operation `1 ^ 1` results in `0`.
-4.  Since the value inside `if()` is `0`, the condition is FALSE.
-5.  The `else` block is executed, setting `b` to `2`.
-6.  At this point, `a` is `3` and `b` is `2`.
-7.  The final line prints the sum `a + b`.
+1. Start: `a=3, b=3`
+2. `a = b` (so `a=3`)
+3. Check: `1 ^ 1 = 0` -> False
+4. Execute else: `b = 2`
 
 ### Result
 
@@ -141,7 +127,7 @@ The final output is `3 + 2 =` **5**.
 
 ### Pseudocode
 
-What is the output for the call `funn(7, 5)`?
+Find the output for `funn(7, 5)`:
 
 ```
 1. Integer funn(Integer a, Integer b)
@@ -159,12 +145,10 @@ What is the output for the call `funn(7, 5)`?
 
 ### Approach
 
-1.  Initially, `a = 7` and `b = 5`. The `for` loop iterates for `c = 2, 3, 4`.
-2.  **c = 2**: `if ((7 mod 2) < (5 mod 3))` -\> `if (1 < 2)` is TRUE. `a` becomes `7 mod 3`, so `a = 1`. The inner `if` is FALSE.
-3.  **c = 3**: `if ((1 mod 3) < (5 mod 3))` -\> `if (1 < 2)` is TRUE. `a` becomes `1 mod 3`, so `a = 1`. The inner `if` is FALSE.
-4.  **c = 4**: `if ((1 mod 4) < (5 mod 3))` -\> `if (1 < 2)` is TRUE. `a` becomes `1 mod 3`, so `a = 1`. The inner `if` is FALSE.
-5.  The loop finishes. The final values are `a = 1` and `b = 5`.
-6.  The function returns `a + b`.
+1. Start: `a=7, b=5`, loop `c` from 2 to 4
+2. **c=2**: `1 < 2` -> True, so `a = 1`. Inner: `2 > 5` -> False
+3. **c=3**: `1 < 2` -> True, so `a = 1`. Inner: `2 > 5` -> False  
+4. **c=4**: `1 < 2` -> True, so `a = 1`. Inner: `2 > 5` -> False
 
 ### Result
 
@@ -176,7 +160,7 @@ The final output is `1 + 5 =` **6**.
 
 ### Pseudocode
 
-What is the output for the call `funn(4, 3)`?
+Find the output for `funn(4, 3)`:
 
 ```
 1. Integer funn(Integer a, Integer b)
@@ -192,16 +176,17 @@ What is the output for the call `funn(4, 3)`?
 
 ### Approach
 
-This is a deeply recursive function.
+Recursive breakdown:
+- `funn(4,3)` -> `funn(2,7) + funn(1,7) + funn(0,7)`
+- `funn(0,7)` -> else -> `7+7 = 14`
+- `funn(1,7)` -> `funn(-1,8) + funn(-2,8) + funn(-3,8)` -> `16+16+16 = 48`
+- `funn(2,7)` -> `funn(0,9) + funn(-1,9) + funn(-2,9)` -> `18+18+18 = 54`
 
-  * `fun(4, 3)` returns `fun(2, 7) + fun(1, 7) + fun(0, 7)`.
-  * Solving the sub-problems:
-      * `fun(0, 7)` runs the `else` block, returning `7 + 7 = 14`.
-      * `fun(1, 7)` returns `fun(-1, 8) + fun(-2, 8) + fun(-3, 8)`. Each of these calls returns `16`, for a total of `48`.
-      * `fun(2, 7)` returns `fun(0, 9) + fun(-1, 9) + fun(-2, 9)`. Each of these calls returns `18`, for a total of `54`.
-  * The final calculation is `54 + 48 + 14`.
+Result: `54 + 48 + 14 = 116`
 
 ### Result
+
+
 
 The final output is **116**.
 
@@ -211,7 +196,7 @@ The final output is **116**.
 
 ### Pseudocode
 
-What is the output for `a = 6`, `b = 1`?
+Find the output for `a = 6`, `b = 1`:
 
 ```
 1. Integer funn(Integer a, Integer b)
@@ -223,10 +208,8 @@ What is the output for `a = 6`, `b = 1`?
 
 ### Approach
 
-1.  The function is called with `a = 6` and `b = 1`.
-2.  `a` is updated to `6 + 6 = 12`.
-3.  `b` is updated to `1 + 1 = 2`.
-4.  The function returns the sum of the new `a` and `b`.
+1. Start: `a=6, b=1`
+2. `a = 12`, `b = 2`
 
 ### Result
 
@@ -238,7 +221,7 @@ The final output is `12 + 2 =` **14**.
 
 ### Pseudocode
 
-What is the output given initial values `a=2`, `b=4`, `c=2`?
+Find the output with `a=2`, `b=4`, `c=2`:
 
 ```
 // Initial values a=2, b=4, c=2
@@ -258,16 +241,10 @@ What is the output given initial values `a=2`, `b=4`, `c=2`?
 
 ### Approach
 
-1.  Initial values: `a = 2`, `b = 4`, `c = 2`.
-2.  `if(b-a)` -\> `if(2)` is TRUE.
-3.  `b = 2 ^ 4`, so `b` becomes `6`.
-4.  `a = c`, so `a` becomes `2`.
-5.  Inner `if(b)` -\> `if(6)` is TRUE.
-6.  `a = 2 ^ 6`, so `a` becomes `4`.
-7.  `b = 6 - 1`, so `b` becomes `5`.
-8.  Final `if(c)` -\> `if(2)` is TRUE.
-9.  `a = b`, so `a` becomes `5`.
-10. The values to be printed are `a=5`, `b=5`, `c=2`.
+1. Start: `a=2, b=4, c=2`
+2. `if(2)` -> True: `b = 2^4 = 6`, `a = 2`
+3. `if(6)` -> True: `a = 2^6 = 4`, `b = 5`
+4. `if(2)` -> True: `a = 5`
 
 ### Result
 
@@ -279,7 +256,7 @@ The final output is `5 + 5 + 2 =` **12**.
 
 ### Pseudocode
 
-What is the output given `a=2`, `b=3`?
+Find the output with `a=2`, `b=3`:
 
 ```
 // Initial values a=2, b=3
@@ -300,11 +277,10 @@ What is the output given `a=2`, `b=3`?
 
 ### Approach
 
-1.  Initial values: `a = 2`, `b = 3`. The `for` loop runs for `c = 4, 5, 6`.
-2.  **c = 4**: `a` becomes `5`. The `if(a > 4)` is TRUE, so `a` becomes `0`. The `if(a + 2)` is TRUE, so `b` becomes `10`. Then `b` becomes `1`.
-3.  **c = 5**: `a` becomes `1`. The `if(a > 4)` is FALSE. The `if(a + 2)` is TRUE, so `b` becomes `11`. Then `b` becomes `2`.
-4.  **c = 6**: `a` becomes `3`. The `if(a > 4)` is FALSE. The `if(a + 2)` is TRUE, so `b` becomes `13`. Then `b` becomes `4`.
-5.  The loop finishes. Final values are `a = 3`, `b = 4`.
+1. Start: `a=2, b=3`, loop `c` from 4 to 6
+2. **c=4**: `a=5`, since `5>4` -> `a=0`, `if(2)` -> `b=10`, then `b=1`
+3. **c=5**: `a=1`, since `1≤4`, `if(3)` -> `b=11`, then `b=2`  
+4. **c=6**: `a=3`, since `3≤4`, `if(5)` -> `b=13`, then `b=4`
 
 ### Result
 
@@ -331,12 +307,10 @@ The final output is `3 + 4 =` **7**.
 
 ### Approach
 
-1.  `m` is set to `9` and `n` is set to `6`.
-2.  `m` is incremented to `10`.
-3.  `n` is decremented to `5`.
-4.  `m` is updated to `m + n`, which is `10 + 5 = 15`.
-5.  The condition `if(15 > 5)` is TRUE.
-6.  The program prints the value of `m`.
+1. Start: `m=9, n=6`
+2. `m=10, n=5`
+3. `m=15`
+4. `15 > 5` -> print `m`
 
 ### Result
 
@@ -348,7 +322,7 @@ The final output is **15**.
 
 ### Pseudocode
 
-What is the output given `p=1, q=4, r=2`?
+Find the output with `p=1, q=4, r=2`:
 
 ```
 // Initial values p=1, q=4, r=2
@@ -365,12 +339,10 @@ What is the output given `p=1, q=4, r=2`?
 
 ### Approach
 
-1.  Initial values: `p = 1`, `q = 4`, `r = 2`.
-2.  `p ^ q` is `1 ^ 4`, which results in `5`.
-3.  `p & q` is `1 & 4`, which results in `0`.
-4.  The condition `(5 > 0)` is TRUE. `r` is set to `p & q`, so `r` becomes `0`.
-5.  The next condition `if (4>0 && 0>1)` is FALSE.
-6.  The program prints `p - q + r - 2`.
+1. Start: `p=1, q=4, r=2`
+2. Check: `1^4 > 1&4` -> `5 > 0` -> True, so `r = 0`
+3. Check: `4>0 && 0>1` -> False
+4. Result: `1 - 4 + 0 - 2`
 
 ### Result
 
@@ -382,7 +354,7 @@ The final output is `1 - 4 + 0 - 2 =` **-5**.
 
 ### Pseudocode
 
-What is the output given `pp=7, qq=7, rr=2`?
+Find the output with `pp=7, qq=7, rr=2`:
 
 ```
 // Initial values pp=7, qq=7, rr=2
@@ -396,12 +368,9 @@ What is the output given `pp=7, qq=7, rr=2`?
 
 ### Approach
 
-1.  Initial values: `pp = 7`, `qq = 7`, `rr = 2`.
-2.  **Line 1**: The complex expression evaluates step-by-step: `(14 ^ (14 & 7)) ^ 14` -\> `(14 ^ 6) ^ 14` -\> `8 ^ 14`. `pp` becomes `6`.
-3.  **Line 2**: `if (6 && 7)` is TRUE.
-4.  `pp = 6 ^ 6`, so `pp` becomes `0`.
-5.  `qq = 7 + 7`, so `qq` becomes `14`.
-6.  The program prints `pp + qq + rr`.
+1. Start: `pp=7, qq=7, rr=2`
+2. Calculate: `pp = ((14) ^ (14&7)) ^ 14 = (14^6)^14 = 8^14 = 6`
+3. `if(6 && 7)` -> True: `pp = 0`, `qq = 14`
 
 ### Result
 
